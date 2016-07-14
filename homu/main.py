@@ -347,7 +347,9 @@ def parse_commands(body, username, repo_cfg, state, my_username, db, states, *, 
             state.save()
 
             if realtime:
-                state.add_comment(':v: @{} can now approve this pull request'.format(state.delegate))
+                msg = ":v: @{}, you\'re now a reviewer for this PR!".format(state.delegate))
+                msg += "Once the code looks good, approve the PR by commenting '@bors-servo r=@{}'".format(state.assignee)
+                state.add_comment(msg)
 
         elif word == 'delegate-':
             state.delegate = ''
