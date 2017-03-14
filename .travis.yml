@@ -6,7 +6,9 @@ python:
   - 3.5
 install:
   - pip install flake8
+  - python setup.py install
 script:
   - flake8 --ignore E501 homu
+  - homu
 notifications:
   webhooks: http://build.servo.org:54856/travis
